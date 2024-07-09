@@ -3,6 +3,7 @@ import sys
 import snowflake.connector
 import re
 import time
+import base64
 
 from typing import List, Dict, Union, Tuple, Set
 from singer import get_logger
@@ -305,7 +306,7 @@ class DbSync:
         return snowflake.connector.connect(
             user=self.connection_config['user'],
             password=self.connection_config['password'],
-            private_key=self.connection_config['private_key'],
+            private_key=base64.b64decode(self.connection_config['private_key']),
             account=self.connection_config['account'],
             database=self.connection_config['dbname'],
             warehouse=self.connection_config['warehouse'],
