@@ -305,7 +305,7 @@ class DbSync:
         return snowflake.connector.connect(
             user=self.connection_config['user'],
             password=self.connection_config['password'],
-            private_key_content=self.connection_config['extra']['private_key_content'],
+            private_key_content=self.connection_config['private_key_content'],
             account=self.connection_config['account'],
             database=self.connection_config['dbname'],
             warehouse=self.connection_config['warehouse'],
